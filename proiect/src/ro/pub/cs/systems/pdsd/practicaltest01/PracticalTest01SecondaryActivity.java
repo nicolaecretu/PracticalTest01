@@ -1,12 +1,37 @@
 package ro.pub.cs.systems.pdsd.practicaltest01;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+
+
 
 public class PracticalTest01SecondaryActivity extends Activity {
 
+	 private ButtonClickListener buttonClickListener = new ButtonClickListener();
+	 
+	  private class ButtonClickListener implements OnClickListener {
+	 
+	    @Override
+	    public void onClick(View view) {
+	      switch(view.getId()) {
+	        case R.id.ok_button:
+	          setResult(RESULT_OK, new Intent());
+	          finish();
+	          break;
+	        case R.id.button:
+	          setResult(RESULT_CANCELED, new Intent());
+	          finish();
+	          break;
+	      }
+	    }
+	  }  
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
